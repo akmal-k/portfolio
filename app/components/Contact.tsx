@@ -152,7 +152,7 @@ export default function Contact() {
               <div className="contact-actions" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
                 <div className="contact-links" style={{ display: "flex", gap: 20 }}>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/akmal-k"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: 12, color: "#999", textDecoration: "none", fontFamily: "var(--font-mono)" }}
@@ -166,12 +166,6 @@ export default function Contact() {
                     style={{ fontSize: 12, color: "#999", textDecoration: "none", fontFamily: "var(--font-mono)" }}
                   >
                     LinkedIn ↗
-                  </a>
-                  <a
-                    href="tel:+998936479955"
-                    style={{ fontSize: 12, color: "#999", textDecoration: "none", fontFamily: "var(--font-mono)" }}
-                  >
-                    +998 93 647 99 55
                   </a>
                 </div>
                 <button

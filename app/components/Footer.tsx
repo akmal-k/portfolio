@@ -23,9 +23,6 @@ export default function Footer() {
           akmal<span style={{ color: "var(--accent)" }}>.tech</span>
         </span>
         <span style={{ fontSize: 12, color: "#bbb" }}>
-          Built with Next.js · TypeScript · Vite
-        </span>
-        <span style={{ fontSize: 12, color: "#bbb" }}>
           © {new Date().getFullYear()} Akmal Kuchkorov
         </span>
       </div>

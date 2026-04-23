@@ -70,7 +70,7 @@ export default function Projects() {
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
       id="projects"
-      className="section-shell responsive-section reveal"
+      className="section-shell responsive-section"
       style={{ padding: "80px 24px", maxWidth: 900, margin: "0 auto" }}
     >
       <p className="section-label" style={{ marginBottom: 12 }}>Featured projects</p>

@@ -45,7 +45,7 @@ export default function Contact() {
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
       id="contact"
-      className="section-shell responsive-section contact-section reveal"
+      className="section-shell responsive-section contact-section"
       style={{ padding: "80px 24px 120px", maxWidth: 900, margin: "0 auto" }}
     >
       <p className="section-label" style={{ marginBottom: 12 }}>Get in touch</p>

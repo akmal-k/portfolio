@@ -1,0 +1,50 @@
+<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>akmal.tech logo</title>
+  <style>
+    .bg       { fill: #0f0f0f; }
+    .grid     { stroke: #1c1c1c; }
+    .bracket  { fill: #1f1f1f; }
+    .letter-a { fill: #f0f0f0; }
+    .wordmark { fill: #f0f0f0; }
+    .sep      { fill: #333333; }
+    .tech     { fill: #666666; }
+    .cursor   { fill: #555555; }
+    .corners  { stroke: #2a2a2a; }
+    @media (prefers-color-scheme: light) {
+      .bg       { fill: #fafafa; }
+      .grid     { stroke: #ebebeb; }
+      .bracket  { fill: #e0e0e0; }
+      .letter-a { fill: #111111; }
+      .wordmark { fill: #111111; }
+      .sep      { fill: #cccccc; }
+      .tech     { fill: #999999; }
+      .cursor   { fill: #bbbbbb; }
+      .corners  { stroke: #d5d5d5; }
+    }
+  </style>
+
+  <rect width="600" height="200" rx="16" class="bg"/>
+
+  <line x1="0"   y1="50"  x2="600" y2="50"  class="grid" stroke-width="0.7"/>
+  <line x1="0"   y1="100" x2="600" y2="100" class="grid" stroke-width="0.7"/>
+  <line x1="0"   y1="150" x2="600" y2="150" class="grid" stroke-width="0.7"/>
+  <line x1="100" y1="0"   x2="100" y2="200" class="grid" stroke-width="0.7"/>
+  <line x1="200" y1="0"   x2="200" y2="200" class="grid" stroke-width="0.7"/>
+  <line x1="300" y1="0"   x2="300" y2="200" class="grid" stroke-width="0.7"/>
+  <line x1="400" y1="0"   x2="400" y2="200" class="grid" stroke-width="0.7"/>
+  <line x1="500" y1="0"   x2="500" y2="200" class="grid" stroke-width="0.7"/>
+
+  <text x="24"  y="148" font-family="'Courier New',Courier,monospace" font-size="86" font-weight="700" class="bracket">{</text>
+  <text x="56"  y="148" font-family="'Courier New',Courier,monospace" font-size="72" font-weight="700" class="letter-a">A</text>
+  <text x="104" y="148" font-family="'Courier New',Courier,monospace" font-size="86" font-weight="700" class="bracket">}</text>
+
+  <text x="152" y="110" font-family="'Courier New',Courier,monospace" font-size="46" font-weight="700" class="wordmark" letter-spacing="2">akmal</text>
+  <rect x="152" y="117" width="268" height="1" class="sep"/>
+  <text x="154" y="144" font-family="'Courier New',Courier,monospace" font-size="18" font-weight="400" class="tech" letter-spacing="8">.tech</text>
+  <rect x="258" y="128" width="9" height="17" rx="1" class="cursor" opacity="0.8"/>
+
+  <polyline points="10,20 10,10 20,10"    class="corners" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="580,10 590,10 590,20" class="corners" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="10,180 10,190 20,190" class="corners" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="580,190 590,190 590,180" class="corners" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

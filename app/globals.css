@@ -15,6 +15,11 @@
   --font-display: 'DM Serif Display', serif;
   --font-mono: 'DM Mono', monospace;
   --font-sans: 'Geist', sans-serif;
+  --logo-bg: #fafafa;
+  --logo-grid: #ebebeb;
+  --logo-border: #e0e0e0;
+  --logo-letter: #111111;
+  --logo-bar: #cccccc;
 }
 
 [data-theme="dark"] {
@@ -25,6 +30,11 @@
   --teal-light: #0D2B22;
   --coral-light: #2B1A15;
   --blue-light: #0D1E33;
+  --logo-bg: #0f0f0f;
+  --logo-grid: #1c1c1c;
+  --logo-border: #2a2a2a;
+  --logo-letter: #f0f0f0;
+  --logo-bar: #333333;
 }
 
 [data-theme="dark"] body {

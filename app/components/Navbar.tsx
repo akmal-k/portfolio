@@ -56,9 +56,21 @@ export default function Navbar() {
             transition: "all 0.3s",
           }}
         >
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 15, fontWeight: 500 }}>
-            akmal<span style={{ color: "var(--accent)" }}>.tech</span>
-          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+            <svg width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="var(--logo-bg)"/>
+              <line x1="0"  y1="11" x2="32" y2="11" stroke="var(--logo-grid)" strokeWidth="0.6"/>
+              <line x1="0"  y1="21" x2="32" y2="21" stroke="var(--logo-grid)" strokeWidth="0.6"/>
+              <line x1="11" y1="0"  x2="11" y2="32" stroke="var(--logo-grid)" strokeWidth="0.6"/>
+              <line x1="21" y1="0"  x2="21" y2="32" stroke="var(--logo-grid)" strokeWidth="0.6"/>
+              <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="5.5" fill="none" stroke="var(--logo-border)" strokeWidth="0.8"/>
+              <text x="16" y="24" fontFamily="'Courier New',Courier,monospace" fontSize="20" fontWeight="700" fill="var(--logo-letter)" textAnchor="middle">A</text>
+              <rect x="8" y="26" width="16" height="1.5" rx="0.5" fill="var(--logo-bar)"/>
+            </svg>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 14, fontWeight: 500 }}>
+              akmal<span style={{ color: "var(--accent)" }}>.tech</span>
+            </span>
+          </div>
 
           <div className="nav-links" style={{ display: "flex", gap: 6, alignItems: "center" }}>
             {links.map((link) => (

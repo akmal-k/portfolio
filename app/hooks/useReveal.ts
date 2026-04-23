@@ -8,37 +8,39 @@ export function useReveal() {
     if (!el) return;
 
     let observer: IntersectionObserver | null = null;
-    let raf2: number;
+    let shown = false;
+
+    const show = () => {
+      if (shown) return;
+      shown = true;
+      el.classList.add("in-view");
+      observer?.disconnect();
+    };
 
     const check = () => {
-      // Check after scroll restoration has settled
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add("in-view");
+      // Show if in viewport OR already scrolled past (above viewport)
+      if (rect.top < window.innerHeight) {
+        show();
         return;
       }
-
+      // Element is below viewport — watch with IntersectionObserver
       observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            el.classList.add("in-view");
-            observer?.disconnect();
-          }
-        },
+        ([entry]) => { if (entry.isIntersecting) show(); },
         { threshold: 0.08 }
       );
       observer.observe(el);
     };
 
-    // Double rAF: first frame starts layout, second frame runs after
-    // browser scroll restoration is applied
-    const raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(check);
-    });
+    // Wait for browser scroll restoration to settle before checking
+    const timer = setTimeout(check, 120);
+
+    // Hard fallback — show everything after 1.5s regardless
+    const fallback = setTimeout(show, 1500);
 
     return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
+      clearTimeout(timer);
+      clearTimeout(fallback);
       observer?.disconnect();
     };
   }, []);

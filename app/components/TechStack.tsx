@@ -1,4 +1,5 @@
 "use client";
+import { useReveal } from "../hooks/useReveal";
 
 const stack = {
   Frontend: ["React.js", "Next.js", "React Native", "TypeScript", "JavaScript ES6+", "HTML5", "CSS3"],
@@ -19,9 +20,11 @@ const categoryColors: Record<string, { bg: string; border: string; text: string 
 };
 
 export default function TechStack() {
+  const ref = useReveal();
   return (
     <section
-      className="section-shell responsive-section"
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="section-shell responsive-section reveal"
       style={{ padding: "80px 24px", maxWidth: 900, margin: "0 auto" }}
     >
       <p className="section-label" style={{ marginBottom: 12 }}>Tech stack</p>

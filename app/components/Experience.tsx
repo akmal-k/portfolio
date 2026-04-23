@@ -1,4 +1,5 @@
 "use client";
+import { useReveal } from "../hooks/useReveal";
 
 const experience = [
   {
@@ -63,10 +64,12 @@ const experience = [
 ];
 
 export default function Experience() {
+  const ref = useReveal();
   return (
     <section
+      ref={ref as React.RefObject<HTMLDivElement>}
       id="experience"
-      className="section-shell responsive-section"
+      className="section-shell responsive-section reveal"
       style={{ padding: "80px 24px", maxWidth: 900, margin: "0 auto" }}
     >
       <p className="section-label" style={{ marginBottom: 12 }}>Work history</p>

@@ -17,6 +17,158 @@
   --font-sans: 'Geist', sans-serif;
 }
 
+[data-theme="dark"] {
+  --accent: #7B74E8;
+  --accent-light: #1E1C3A;
+  --accent-mid: #4A45A0;
+  --teal: #2DC98F;
+  --teal-light: #0D2B22;
+  --coral-light: #2B1A15;
+  --blue-light: #0D1E33;
+}
+
+[data-theme="dark"] body {
+  background: #0F0F12;
+  color: #E8E6E0;
+}
+
+[data-theme="dark"] .card {
+  background: #1A1A20;
+  border-color: #2A2A35;
+}
+
+[data-theme="dark"] .card:hover {
+  border-color: var(--accent-mid);
+}
+
+[data-theme="dark"] .nav-blur {
+  background: rgba(15, 15, 18, 0.88);
+}
+
+[data-theme="dark"] .btn-outline {
+  color: #E8E6E0;
+  border-color: #3A3A45;
+}
+
+[data-theme="dark"] .btn-outline:hover {
+  border-color: var(--accent-mid);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .tag {
+  background: #1A1A20;
+  border-color: #2A2A35;
+  color: #AAA;
+}
+
+[data-theme="dark"] .tl-line {
+  background: #2A2A35;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background: #1A1A20 !important;
+  border-color: #2A2A35 !important;
+  color: #E8E6E0 !important;
+}
+
+/* Fix hardcoded inline colors in dark mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .hero-title {
+  color: #E8E6E0 !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li {
+  color: #A8A5A0 !important;
+}
+
+/* Navbar buttons & borders */
+[data-theme="dark"] .site-nav button {
+  color: #A8A5A0 !important;
+  border-color: #3A3A45 !important;
+}
+
+[data-theme="dark"] .site-nav .nav-blur {
+  border-color: #2A2A35 !important;
+}
+
+/* Project & blog card text */
+[data-theme="dark"] .card span,
+[data-theme="dark"] .card div {
+  color: inherit;
+}
+
+/* Section label stays muted */
+[data-theme="dark"] .section-label {
+  color: #555 !important;
+}
+
+/* Timeline dots border */
+[data-theme="dark"] .tl-dot {
+  border-color: #3A3A45;
+  background: #0F0F12;
+}
+
+[data-theme="dark"] .tl-dot-active {
+  border-color: var(--accent);
+  background: #0F0F12;
+}
+
+/* Inline dark text (project names, blog titles, etc.) */
+[data-theme="dark"] [style*="color: #1a1a1a"],
+[data-theme="dark"] [style*="color:#1a1a1a"] {
+  color: #E8E6E0 !important;
+}
+
+[data-theme="dark"] [style*="color: #666"],
+[data-theme="dark"] [style*="color:#666"],
+[data-theme="dark"] [style*="color: #555"],
+[data-theme="dark"] [style*="color: #444"] {
+  color: #A8A5A0 !important;
+}
+
+[data-theme="dark"] [style*="color: #888"],
+[data-theme="dark"] [style*="color: #999"],
+[data-theme="dark"] [style*="color: #aaa"],
+[data-theme="dark"] [style*="color: #bbb"],
+[data-theme="dark"] [style*="color: #ccc"] {
+  color: #666 !important;
+}
+
+/* Card borders, dividers */
+[data-theme="dark"] [style*="border-top: 0.5px solid #f0ede8"],
+[data-theme="dark"] [style*="borderTop: \"0.5px solid #f0ede8\""] {
+  border-top-color: #2A2A35 !important;
+}
+
+[data-theme="dark"] [style*="border: 0.5px solid #e8e5e0"],
+[data-theme="dark"] [style*="border: \"0.5px solid #e8e5e0\""] {
+  border-color: #2A2A35 !important;
+}
+
+/* White backgrounds inside cards */
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background: \"#fff\""],
+[data-theme="dark"] [style*="background: white"] {
+  background: #1A1A20 !important;
+}
+
+[data-theme="dark"] [style*="background: #fafaf8"] {
+  background: #0F0F12 !important;
+}
+
+[data-theme="dark"] .hero-stats {
+  background: #1A1A20 !important;
+  border-color: #2A2A35 !important;
+}
+
+[data-theme="dark"] .hero-stats > div {
+  border-right-color: #2A2A35 !important;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -58,8 +210,22 @@ body::before {
   from { width: 0; }
   to   { width: 100%; }
 }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
 
 .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
 .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
 .cursor-blink {
   display: inline-block;
@@ -233,14 +399,23 @@ body::before {
   }
 
   .hero-actions a,
-  .hero-actions button,
-  .contact-actions button {
+  .hero-actions button {
     width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .hero-avatar {
     width: 110px !important;
     height: 110px !important;
     font-size: 30px !important;
+  }
+
+  .hero-stats > div {
+    flex: 1 1 40%;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
   }
 }

@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 
 const roles = ["Frontend Engineer", "React Native Dev", "Next.js Specialist", "UI Craftsman"];
 
+const stats = [
+  { value: "5+", label: "years shipping" },
+  { value: "4", label: "apps in production" },
+  { value: "10M+", label: "users reached" },
+  { value: "3", label: "countries" },
+];
+
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
@@ -45,7 +52,7 @@ export default function Hero() {
         position: "relative",
       }}
     >
-      {/* Background accent circle */}
+      {/* Background accent */}
       <div
         className="hero-accent"
         style={{
@@ -85,61 +92,27 @@ export default function Hero() {
               transition: "all 0.8s ease",
             }}
           >
-            <div
-              className="hero-experience-badge"
-              style={{
-                display: "inline-flex",
-                alignItems: "baseline",
-                gap: 12,
-                marginBottom: 20,
-                padding: "10px 18px",
-                borderRadius: 999,
-                background: "#fff",
-                border: "1px solid var(--accent-mid)",
-                boxShadow: "0 10px 30px rgba(83, 74, 183, 0.08)",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(28px, 4vw, 44px)",
-                  lineHeight: 1,
-                  color: "var(--accent)",
-                }}
-              >
-                5+
-              </span>
-              <span
-                className="section-label"
-                style={{
-                  fontSize: 13,
-                  letterSpacing: "0.12em",
-                  color: "#5e5a74",
-                }}
-              >
-                years of experience
-              </span>
-            </div>
-
+            {/* Name */}
             <div
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 12,
                 color: "#999",
                 letterSpacing: "0.1em",
-                marginBottom: 12,
+                marginBottom: 14,
               }}
             >
               Akmal Kuchkorov
             </div>
 
+            {/* Headline */}
             <h1
               className="hero-title"
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(36px, 5vw, 58px)",
                 lineHeight: 1.12,
-                marginBottom: 20,
+                marginBottom: 16,
                 color: "#1a1a1a",
               }}
             >
@@ -154,7 +127,7 @@ export default function Hero() {
                 fontFamily: "var(--font-mono)",
                 fontSize: 13,
                 color: "var(--accent)",
-                marginBottom: 20,
+                marginBottom: 16,
                 height: 22,
                 display: "flex",
                 alignItems: "center",
@@ -169,72 +142,73 @@ export default function Hero() {
                 fontSize: 15,
                 color: "#666",
                 lineHeight: 1.8,
-                maxWidth: 520,
-                marginBottom: 32,
+                maxWidth: 500,
+                marginBottom: 28,
               }}
             >
-              React · Next.js · React Native · TypeScript — fast, precise products
-              built with clean architecture and thoughtful UX.
+              I specialise in React, Next.js & React Native — building fast,
+              polished products that work at scale and feel great to use.
             </p>
 
-            <div className="hero-actions" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
+            {/* CTAs */}
+            <div className="hero-actions" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 20 }}>
+              <a href="mailto:akmal.kuchkorov05@gmail.com" style={{ textDecoration: "none" }}>
+                <button className="btn-accent" style={{ padding: "11px 24px", fontSize: 14 }}>
+                  Let&apos;s talk →
+                </button>
+              </a>
               <button
-                className="btn-accent"
+                className="btn-outline"
+                style={{ padding: "11px 24px", fontSize: 14 }}
                 onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               >
-                View projects
+                See my work
               </button>
-              <a
-                href="mailto:akmalkuchkorov98@gmail.com"
-                style={{ textDecoration: "none" }}
-              >
-                <button className="btn-outline">Get in touch</button>
-              </a>
             </div>
 
-            {/* Status pill */}
+            {/* Trust micro-copy */}
+            <p style={{ fontSize: 11, color: "#bbb", fontFamily: "var(--font-mono)", marginBottom: 28 }}>
+              Replies within 2h · Available now
+            </p>
+
+            {/* Stats row */}
             <div
-              className="hero-status-pill"
+              className="hero-stats"
               style={{
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 8,
-                padding: "10px 18px",
+                gap: 0,
                 borderRadius: 12,
-                background: "#fff",
+                overflow: "hidden",
                 border: "0.5px solid #e8e5e0",
-                fontSize: 12,
-                color: "#555",
+                background: "#fff",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span
+              {stats.map((stat, i) => (
+                <div
+                  key={stat.label}
                   style={{
-                    width: 7,
-                    height: 7,
-                    borderRadius: "50%",
-                    background: "var(--teal)",
-                    display: "inline-block",
-                    flexShrink: 0,
-                    boxShadow: "0 0 0 3px var(--teal-light)",
+                    flex: 1,
+                    padding: "12px 10px",
+                    textAlign: "center",
+                    borderRight: i < stats.length - 1 ? "0.5px solid #e8e5e0" : "none",
                   }}
-                />
-                <span style={{ fontWeight: 500 }}>Available for new opportunities</span>
-              </div>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11,
-                  color: "var(--teal)",
-                  background: "var(--teal-light)",
-                  padding: "3px 10px",
-                  borderRadius: 99,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Remote friendly
-              </span>
+                >
+                  <div
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "clamp(18px, 2.5vw, 24px)",
+                      color: "var(--accent)",
+                      lineHeight: 1,
+                      marginBottom: 4,
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div style={{ fontSize: 10, color: "#999", fontFamily: "var(--font-mono)", letterSpacing: "0.05em" }}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -245,6 +219,10 @@ export default function Hero() {
               opacity: visible ? 1 : 0,
               transform: visible ? "scale(1)" : "scale(0.9)",
               transition: "all 1s ease 0.3s",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 16,
             }}
           >
             <div
@@ -271,7 +249,6 @@ export default function Hero() {
                   display: "block",
                 }}
               />
-              {/* Online dot */}
               <div
                 style={{
                   position: "absolute",
@@ -284,6 +261,36 @@ export default function Hero() {
                   border: "2.5px solid #fafaf8",
                 }}
               />
+            </div>
+
+            {/* Available pill under avatar */}
+            <div
+              className="hero-status-pill"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                padding: "6px 14px",
+                borderRadius: 99,
+                background: "var(--teal-light)",
+                border: "0.5px solid #9FE1CB",
+                fontSize: 11,
+                color: "#085041",
+                fontFamily: "var(--font-mono)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: "var(--teal)",
+                  display: "inline-block",
+                  animation: "pulse 2s ease-in-out infinite",
+                }}
+              />
+              Open to work · Remote
             </div>
           </div>
         </div>
